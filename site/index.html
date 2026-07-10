@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="15秒で光るターゲットを追いかける、無料で公開できるミニゲーム。"
+    />
+    <meta name="theme-color" content="#0a0b14" />
+    <title>PICO POP — 15秒タップゲーム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="PICO POP トップ">
+        <span class="brand-mark" aria-hidden="true"></span>
+        PICO<span>POP</span>
+      </a>
+      <div class="cloud-status" id="cloud-status" data-mode="checking">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="cloud-status-text">接続確認中</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow"><span>NEW</span> 15 SECOND CHALLENGE</p>
+        <h1 id="hero-title">光を追え。<br /><em>一瞬をスコアに。</em></h1>
+        <p class="hero-copy">
+          動くターゲットを15秒間タップ。インストール不要、スマホでもPCでもすぐ遊べます。
+        </p>
+        <a class="primary-link" href="#play">今すぐプレイ <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="play-layout" id="play" aria-label="ゲームとランキング">
+        <article class="game-card panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">GAME 01</p>
+              <h2>Pixel Chase</h2>
+            </div>
+            <div class="score-strip" aria-live="polite">
+              <div><span>TIME</span><strong id="time-value">15.0</strong></div>
+              <div><span>SCORE</span><strong id="score-value">0</strong></div>
+              <div><span>BEST</span><strong id="best-value">0</strong></div>
+            </div>
+          </div>
+
+          <div class="arena" id="arena">
+            <div class="arena-grid" aria-hidden="true"></div>
+            <div class="start-layer" id="start-layer">
+              <p id="game-message">準備はいい？</p>
+              <button class="start-button" id="start-button" type="button">
+                START <span aria-hidden="true">↗</span>
+              </button>
+              <small>ターゲットをクリック / タップ</small>
+            </div>
+            <button
+              class="target"
+              id="target"
+              type="button"
+              aria-label="ターゲット"
+              hidden
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p class="game-hint">TIP: 連打ではなく、次に現れた場所を狙おう。</p>
+        </article>
+
+        <aside class="leaderboard-card panel" aria-labelledby="ranking-title">
+          <div class="panel-heading compact">
+            <div>
+              <p class="section-kicker">TOP PLAYERS</p>
+              <h2 id="ranking-title">Leaderboard</h2>
+            </div>
+            <span class="live-label"><i aria-hidden="true"></i> LIVE</span>
+          </div>
+
+          <ol class="ranking-list" id="ranking-list" aria-live="polite">
+            <li class="ranking-placeholder">ランキングを読み込み中...</li>
+          </ol>
+
+          <form class="score-form" id="score-form">
+            <label for="player-name">プレイヤー名</label>
+            <div class="form-row">
+              <input
+                id="player-name"
+                name="playerName"
+                maxlength="12"
+                autocomplete="nickname"
+                placeholder="PLAYER"
+                required
+              />
+              <button id="save-score-button" type="submit" disabled>記録する</button>
+            </div>
+            <p id="form-message">ゲーム終了後にベストスコアを登録できます。</p>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <p>PICO POP <span>•</span> Built for quick breaks.</p>
+      <a href="#top">BACK TO TOP ↑</a>
+    </footer>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
